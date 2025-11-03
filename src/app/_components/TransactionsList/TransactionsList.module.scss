@@ -1,0 +1,363 @@
+.transactionsContainer {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    .mainCard {
+        background-color: white;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            
+            button {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+            
+            .titleSection {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                flex: 1;
+                min-width: 0;
+                
+                .iconWrapper {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 10px;
+                    background-color: #425c59;
+                    border-radius: 50%;
+                    color: white;
+                    flex-shrink: 0;
+                    width: 44px;
+                    height: 44px;
+                }
+                
+                .title {
+                    font-size: 28px;
+                    font-weight: 600;
+                    margin: 0;
+                    color: #425c59;
+                }
+                
+                .subtitle {
+                    font-size: 16px;
+                    color: #6b7280;
+                    margin: 0;
+                }
+            }
+            
+        }
+    }
+    
+    .transactionsList {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        
+        .transactionItem {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            transition: background-color 0.2s ease;
+            
+            &:hover {
+                background-color: #f1f3f4;
+            }
+            
+            .transactionInfo {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                
+                .transactionIcon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    background-color: #f3f4f6;
+                    color: #6b7280;
+                    font-size: 14px;
+                }
+                
+                .transactionDetails {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+                    
+                    .transactionDescription {
+                        font-weight: 500;
+                        font-size: 16px;
+                        color: #1f2937;
+                    }
+                    
+                    .transactionDate {
+                        font-size: 14px;
+                        color: #6b7280;
+                    }
+                }
+            }
+            
+            .transactionActions {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                
+                .transactionValue {
+                    font-weight: 600;
+                    font-size: 18px;
+                    
+                    &.positive {
+                        color: #63a879;
+                    }
+                    
+                    &.negative {
+                        color: #ca5c5c;
+                    }
+                }
+                
+                .actionButtons {
+                    display: flex;
+                    gap: 8px;
+                    
+                    .actionButton {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 32px;
+                        height: 32px;
+                        border: none;
+                        border-radius: 6px;
+                        background-color: #f3f4f6;
+                        color: #6b7280;
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+                        
+                        &:hover {
+                            background-color: #e5e7eb;
+                            color: #374151;
+                        }
+                        
+                        &.deleteButton:hover {
+                            background-color: #fef2f2;
+                            color: #dc2626;
+                        }
+                    }
+                }
+            }
+        }
+        
+        .emptyState {
+            text-align: center;
+            padding: 60px 20px;
+            color: #6b7280;
+            font-size: 16px;
+        }
+    }
+    
+    .modalOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        
+        .modal {
+            background-color: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            
+            .modalHeader {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+                border-bottom: 1px solid #e5e7eb;
+                
+                h3 {
+                    margin: 0;
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #1f2937;
+                }
+                
+                .closeButton {
+                    background: none;
+                    border: none;
+                    font-size: 24px;
+                    color: #6b7280;
+                    cursor: pointer;
+                    padding: 0;
+                    width: 32px;
+                    height: 32px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    
+                    &:hover {
+                        color: #374151;
+                    }
+                }
+            }
+            
+            .modalBody {
+                padding: 20px;
+                
+                p {
+                    margin: 0 0 10px 0;
+                    color: #374151;
+                }
+                
+                .formGrid {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 20px;
+                    
+                    .formGroup {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 8px;
+                        
+                        label {
+                            font-size: 14px;
+                            font-weight: 500;
+                            color: #374151;
+                        }
+                        
+                        .formInput, .formTextarea {
+                            padding: 12px;
+                            border: 2px solid #e5e7eb;
+                            border-radius: 8px;
+                            font-size: 14px;
+                            transition: border-color 0.2s ease;
+                            
+                            &:focus {
+                                outline: none;
+                                border-color: #3b82f6;
+                            }
+                            
+                            &::placeholder {
+                                color: #9ca3af;
+                            }
+                        }
+                        
+                        .formTextarea {
+                            resize: vertical;
+                            min-height: 80px;
+                        }
+                    }
+                }
+            }
+            
+            .modalFooter {
+                display: flex;
+                justify-content: flex-end;
+                gap: 12px;
+                padding: 20px;
+                border-top: 1px solid #e5e7eb;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .transactionsContainer {
+        padding: 15px;
+        
+        .mainCard {
+            padding: 20px;
+            
+            .header {
+                flex-wrap: wrap;
+                gap: 10px;
+                
+                .titleSection {
+                    width: 100%;
+                    gap: 10px;
+                    
+                    .iconWrapper {
+                        width: 40px;
+                        height: 40px;
+                        padding: 8px;
+                    }
+                    
+                    .title {
+                        font-size: 24px;
+                    }
+                    
+                    .subtitle {
+                        font-size: 14px;
+                    }
+                }
+                
+                button {
+                    width: 100%;
+                    justify-content: center;
+                }
+            }
+        }
+        
+        .modalOverlay {
+            .modal {
+                width: 95%;
+                max-width: 100%;
+                
+                .modalBody {
+                    .formGrid {
+                        grid-template-columns: 1fr;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .transactionsContainer {
+        padding: 10px;
+        
+        .mainCard {
+            padding: 15px;
+            border-radius: 15px;
+            
+            .header {
+                .titleSection {
+                    .iconWrapper {
+                        width: 36px;
+                        height: 36px;
+                        padding: 6px;
+                    }
+                    
+                    .title {
+                        font-size: 20px;
+                    }
+                    
+                    .subtitle {
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+}

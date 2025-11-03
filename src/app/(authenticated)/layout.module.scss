@@ -1,0 +1,90 @@
+.mainContent {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #e2eceb;
+    overflow-y: auto;
+    
+    .contentWrapper {
+        transition: all 0.3s ease-in-out;
+        min-height: 100vh;
+        position: relative;
+        
+        &.collapsed {
+            width: calc(100% - 340px);
+            margin-left: 340px;
+        }
+    
+        &.fullWidth {
+            width: 100%;
+            margin-left: 0px;
+        }
+
+        .toggleButton {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 999;
+            background-color: #3d5653;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #e2eceb;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                background-color: #2e4442;
+                transform: scale(1.05);
+            }
+
+            &:active {
+                transform: scale(0.95);
+            }
+        }
+    }
+}
+
+@media (max-width: 940px) {
+    .mainContent {
+        .contentWrapper {
+            &.collapsed {
+                width: 0px;
+                margin-left: 100vw;
+                overflow: hidden;
+            }
+            
+            .toggleButton {
+                top: 25px;
+                right: 25px !important;
+                left: unset !important;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .mainContent {
+        .contentWrapper {
+            .toggleButton {
+                width: 40px;
+                height: 40px;
+                top: 25px;
+                right: 25px !important;
+                left: unset !important;
+                
+                svg {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
+}

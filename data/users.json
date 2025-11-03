@@ -1,0 +1,20 @@
+{
+  "currentId": 3,
+  "users": [
+    {
+      "name": "Lucas Antonio Varanda",
+      "email": "lucasvvaranda@hotmail.com",
+      "password": "123456",
+      "id": 1,
+      "cpf": "48854333808"
+    },
+    {
+      "name": "Teste Usuário Novo",
+      "email": "teste@teste.com",
+      "password": "123456",
+      "profileImage": "/profile-4.png",
+      "id": 2,
+      "cpf": "28374283942"
+    }
+  ]
+}

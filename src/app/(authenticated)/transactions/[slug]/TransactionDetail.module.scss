@@ -1,0 +1,222 @@
+.container {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    .header {
+        background-color: white;
+        padding: 25px 30px;
+        border-radius: 12px;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .titleSection {
+            flex: 1;
+            text-align: center;
+            
+            h1 {
+                font-size: 32px;
+                font-weight: 700;
+                margin: 0 0 10px 0;
+                color: #1f2937;
+            }
+            
+            .transactionType {
+                display: inline-block;
+                padding: 6px 16px;
+                border-radius: 20px;
+                font-size: 14px;
+                font-weight: 500;
+                background-color: #425c59;
+                color: white;
+            }
+        }
+        
+        .actionButtons {
+            .editActions {
+                display: flex;
+                gap: 12px;
+            }
+        }
+    }
+    
+    .content {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 30px;
+        
+        .mainInfo {
+            .valueSection {
+                background-color: white;
+                padding: 40px;
+                border-radius: 12px;
+                box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
+                text-align: center;
+                
+                h2 {
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin: 0 0 20px 0;
+                    color: #6b7280;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+                
+                .value {
+                    font-size: 48px;
+                    font-weight: 700;
+                    line-height: 1.2;
+                    
+                    &.positive {
+                        color: #63a879;
+                    }
+                    
+                    &.negative {
+                        color: #ca5c5c;
+                    }
+                }
+                
+                .valueInput {
+                    width: 100%;
+                    padding: 15px;
+                    border: 2px solid #e5e7eb;
+                    border-radius: 8px;
+                    font-size: 32px;
+                    font-weight: 700;
+                    text-align: center;
+                    
+                    &:focus {
+                        outline: none;
+                        border-color: #425c59;
+                    }
+                }
+            }
+        }
+        
+        .detailsSection {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
+            
+            h3 {
+                font-size: 20px;
+                font-weight: 700;
+                margin: 0 0 25px 0;
+                color: #1f2937;
+                padding-bottom: 15px;
+                border-bottom: 2px solid #f3f4f6;
+            }
+            
+            .detailsGrid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 25px;
+                
+                .detailItem {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    
+                    &:has(.textareaInput),
+                    &:has(.code) {
+                        grid-column: 1 / -1;
+                    }
+                    
+                    label {
+                        font-size: 12px;
+                        font-weight: 600;
+                        color: #6b7280;
+                        text-transform: uppercase;
+                        letter-spacing: 0.5px;
+                    }
+                    
+                    span {
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: #1f2937;
+                        
+                        &.code {
+                            font-family: monospace;
+                            font-size: 11px;
+                            background-color: #f8f9fa;
+                            padding: 12px;
+                            border-radius: 6px;
+                            word-break: break-all;
+                            border: 1px solid #e5e7eb;
+                        }
+                    }
+                    
+                    .textInput, .selectInput, .textareaInput {
+                        padding: 12px;
+                        border: 2px solid #e5e7eb;
+                        border-radius: 6px;
+                        font-size: 14px;
+                        font-weight: 500;
+                        
+                        &:focus {
+                            outline: none;
+                            border-color: #425c59;
+                        }
+                    }
+                    
+                    .textareaInput {
+                        resize: vertical;
+                        min-height: 100px;
+                        font-family: monospace;
+                        font-size: 11px;
+                    }
+                }
+            }
+        }
+    }
+    
+    .loading, .error {
+        text-align: center;
+        padding: 60px 20px;
+        
+        p {
+            font-size: 18px;
+            color: #6b7280;
+            margin: 0 0 20px 0;
+        }
+        
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        
+        .header {
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+            
+            .titleSection {
+                order: 2;
+            }
+            
+            .actionButtons {
+                order: 3;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+        }
+        
+        .content {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            
+            .detailsSection {
+                .detailsGrid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        }
+    }
+}
